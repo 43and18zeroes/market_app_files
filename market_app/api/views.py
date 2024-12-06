@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticate
 class ManufacturerList(generics.ListCreateAPIView):
     queryset = Manufacturer.objects.all()
     serializer_class = ManufacturerSerializer
-    #permission_classes = [IsAuthenticated] #IsStaffOrReadOnly |    # später hinzufügen!
+    permission_classes = [IsAuthenticatedOrReadOnly] #IsStaffOrReadOnly
 
 class ManufacturerDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Manufacturer.objects.all()
