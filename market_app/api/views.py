@@ -15,7 +15,6 @@ class ManufacturerDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ManufacturerSerializer
     permission_classes = [IsAdminForDeleteOrPatchAndReadOnly]   
 
-
 class ProductList(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
@@ -24,17 +23,14 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-
 class ManufacturerUserList(generics.ListCreateAPIView):
     queryset = ManufacturerUser.objects.all()
     serializer_class = ManufacturerUserSerializer
-
 
 class ManufacturerUserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = ManufacturerUser.objects.all()
     serializer_class = ManufacturerUserSerializer
     #permission_classes = [IsOwnerOrAdmin]                           # später hinzufügen!
-
 
 class ManufacturerProductListCreate(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
