@@ -23,7 +23,7 @@ class RegistrationView(APIView):
         data = {}
         if serilalizer.is_valid():
             saved_account = serilalizer.save()
-            token = Token.objects.get_or_create(user=saved_account)
+            token, created = Token.objects.get_or_create(user=saved_account)
             data = {
                 'token': token.key,
                 'username': saved_account.username,
@@ -32,5 +32,4 @@ class RegistrationView(APIView):
         else:
             data=serilalizer.errors
             
-        return Response
-        
+        return Response(data)
